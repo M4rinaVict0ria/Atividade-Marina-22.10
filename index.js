@@ -38,7 +38,7 @@ app.post("/alunos", async (req, res) => {
   const { nome, idade } = req.body;
   try {
     await pool.query("INSERT INTO alunos (nome, idade) VALUES ($1, $2)", [nome, idade]);
-    res.send("✅ Aluno cadastrado com sucesso!");
+    res.status(201).send("✅ Aluno cadastrado com sucesso!");
   } catch (err) {
     console.error("Erro ao cadastrar:", err);
     res.status(500).send("Erro ao cadastrar aluno");

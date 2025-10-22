@@ -34,7 +34,7 @@ app.get("/create-table", async (req, res) => {
 });
 
 // ➕ CREATE
-app.post("/alunos", async (req, res) => {
+app.post("alunos", async (req, res) => {
   const { nome, idade } = req.body;
   try {
     await pool.query("INSERT INTO alunos (nome, idade) VALUES ($1, $2)", [nome, idade]);
@@ -46,7 +46,7 @@ app.post("/alunos", async (req, res) => {
 });
 
 // 📖 READ
-app.get("/alunos", async (req, res) => {
+app.get("alunos", async (req, res) => {
   try {
     const result = await pool.query("SELECT * FROM alunos ORDER BY id ASC");
     res.json(result.rows);
@@ -57,7 +57,7 @@ app.get("/alunos", async (req, res) => {
 });
 
 // ✏️ UPDATE
-app.put("/alunos/:id", async (req, res) => {
+app.put("alunos/:id", async (req, res) => {
   const { id } = req.params;
   const { nome, idade } = req.body;
   try {
@@ -70,7 +70,7 @@ app.put("/alunos/:id", async (req, res) => {
 });
 
 // ❌ DELETE
-app.delete("/alunos/:id", async (req, res) => {
+app.delete("alunos/:id", async (req, res) => {
   const { id } = req.params;
   try {
     await pool.query("DELETE FROM alunos WHEE id=$1", [id]);

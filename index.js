@@ -17,16 +17,16 @@ const pool = new Pool({
 });
 
 // 🧱 Criar tabela (executar 1x)
-app.get("/create-table", async (req, res) => {
+app.get("/criar-tabela", async (req, res) => {
   try {
     await pool.query(`
       CREATE TABLE IF NOT EXISTS alunos (
         id SERIAL PRIMARY KEY,
-        nome TEXT,
-        idade INT
-      );
+        nome VARCHAR(100) NOT NULL,
+        idade INT NOT NULL
+      )
     `);
-    res.send("✅ Tabela 'alunos' criada com sucesso!");
+    res.send("Tabela 'alunos' criada com sucesso!");
   } catch (err) {
     console.error("Erro ao criar tabela:", err);
     res.status(500).send("Erro ao criar tabela");

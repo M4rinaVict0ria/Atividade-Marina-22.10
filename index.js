@@ -34,7 +34,7 @@ app.get("/create-table", async (req, res) => {
 });
 
 // ➕ CREATE
-app.post("/alunos", async (req, res) => {
+app.post("alunos", async (req, res) => {
   const { nome, idade } = req.body;
   try {
     await pool.query("INSERT INTO alunos (nome, idade) VALUES ($1, $2)", [nome, idade]);

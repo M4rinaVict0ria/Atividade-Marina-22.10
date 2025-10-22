@@ -20,7 +20,7 @@ const pool = new Pool({
 app.get("/create-table", async (req, res) => {
   try {
     await pool.query(`
-      CREATE TABLE IF NOT EXISTS alunos (
+      CREATE TABLE IF NOT EXIST alunos (
         id SERIAL PRIMARY KEY,
         nome TEXT,
         idade INT

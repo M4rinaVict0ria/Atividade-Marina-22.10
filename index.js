@@ -26,6 +26,7 @@ app.get("/criar-tabela", async (req, res) => {
         idade INT NOT NULL
       )
     `);
+    console.log("Tabela 'alunos' criada com sucesso!");
     res.send("Tabela 'alunos' criada com sucesso!");
   } catch (err) {
     console.error("Erro ao criar tabela:", err);
